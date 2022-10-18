@@ -1,1 +1,33 @@
 // TODO
+.title{
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 58px;
+  letter-spacing: -0.5px;
+  color: var(--heading);
+}
+.info{
+  display: flex;
+  margin-bottom: 4rem;
+  margin-top: 2.5rem;
+  color: var(--info);
+  font-size: 14px;
+  line-height: 17px;
+
+  p {
+    margin-left: 8px;
+  }
+  .infoSection{
+    display: flex;
+    align-items: center;
+
+    svg{
+      width: 20px;
+      height: 20px;
+    }
+
+    & + .infoSection {
+      margin-left: 2.5rem;
+    }
+  }
+}

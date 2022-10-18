@@ -1,0 +1,40 @@
+{
+  "id": "mock-doc-id",
+  "url": null,
+  "type": "post",
+  "href": null,
+  "tags": [],
+  "first_publication_date": "1970-01-01T00:00:01+0000",
+  "last_publication_date": "1970-01-01T00:00:01+0000",
+  "slugs": [],
+  "linked_documents": [],
+  "lang": "en-us",
+  "alternate_languages": [],
+  "data": {
+    "title": "tightly",
+    "subtitle": "arm",
+    "author": "thee",
+    "banner": {
+      "dimensions": {
+        "width": 900,
+        "height": 500
+      },
+      "alt": null,
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1544731612-de7f96afe55f"
+    },
+    "content": [
+      {
+        "heading": "term",
+        "body": [
+          {
+            "type": "paragraph",
+            "text": "Exercitation magna tempor ipsum cupidatat incididunt duis labore pariatur sit. Amet ad exercitation pariatur sint nulla eu quis aute sint dolor ea fugiat labore. Sit velit voluptate exercitation ea.",
+            "spans": []
+          }
+        ]
+      }
+    ],
+    "slices": []
+  }
+}
