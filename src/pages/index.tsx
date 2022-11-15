@@ -30,26 +30,38 @@ interface HomeProps {
 
 export default function Home({ postsPagination }: HomeProps): JSX.Element {
   const { results, next_page } = postsPagination;
-  const [paginationPages, setPaginationsPage] = useState([]);
+  const [next, setNext] = useState(next_page);
+  const [posts, setPosts] = useState(results);
 
   async function fetchNewPages(): Promise<void> {
     const response = await fetch(next_page);
-    const { results: newPages } = await response.json();
-    setPaginationsPage(previousState => [...previousState, ...newPages]);
+    const response_json = await response.json();
+    const { results: newPages } = response_json;
+    const newPagesFormatted = newPages.map(post => {
+      return {
+        ...post,
+        first_publication_date: format(
+          new Date(post.first_publication_date),
+          'dd MMM yyyy',
+          {
+            locale: ptBR,
+          }
+        ),
+      };
+    });
+    setPosts(previousState => [...previousState, ...newPagesFormatted]);
+    setNext(response_json.next_page);
   }
 
   // TODO
   return (
     <div className={commonStyles.container}>
       <main className={styles.posts}>
-        {results.map(post => (
-          <PostInfo key={post.uid} post={post} />
-        ))}
-        {paginationPages.map(post => (
+        {posts.map(post => (
           <PostInfo key={post.uid} post={post} />
         ))}
       </main>
-      {next_page && <CarregarMaisButton onClick={() => fetchNewPages()} />}
+      {next && <CarregarMaisButton onClick={() => fetchNewPages()} />}
     </div>
   );
 }
